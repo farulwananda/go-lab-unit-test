@@ -1,14 +1,20 @@
 package helper
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
-func TestHelloWorld(t *testing.T) {
+func TestHelloWorldOrigin(t *testing.T) {
 	result := HelloWorld("Farul")
 
 	if result != "Hello Farul" {
 		//error
-		panic("Result is not 'Hello Farul'")
+		//* t.Fail()
+		t.Error("Result must be 'Hello Farul'")
 	}
+
+	fmt.Println("TestHelloWorldOrigin is DONE")
 }
 
 func TestHelloWorldClone(t *testing.T) {
@@ -16,6 +22,9 @@ func TestHelloWorldClone(t *testing.T) {
 
 	if result != "Hello Farul Wananda" {
 		//error
-		panic("Result is not 'Hello Farul Wananda'")
+		//* t.FailNow()
+		t.Fatal("Result must be 'Hello Farul Wananda'")
 	}
+
+	fmt.Println("TestHelloWorldClone is DONE")
 }
