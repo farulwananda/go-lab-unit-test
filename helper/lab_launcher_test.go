@@ -9,7 +9,17 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestSkip(t *testing.T)  {
+func TestMain(m *testing.M) {
+	//before
+	fmt.Println("BEFORE UNIT TEST")
+
+	m.Run()
+
+	//after
+	fmt.Println("AFTER UNIT TEST")
+}
+
+func TestSkip(t *testing.T) {
 	if runtime.GOOS == "windows" {
 		t.Skip("Test cannot run on Windows")
 	}
